@@ -1,20 +1,29 @@
 ---
-description: Save your Disputron API key so the disputron MCP server can authenticate.
-allowed-tools: Bash, Read, Write
+description: Authenticate with Disputron. The disputron MCP server uses OAuth — your first tool call opens a browser to sign in via Google or GitHub.
+allowed-tools: Bash
 ---
 
-The user wants to authenticate with Disputron so that the MCP tools (`file_case`, `respond_to_case`, `get_case_status`) work in this session.
+The disputron MCP server uses OAuth. There is no manual key step — the first time you use a Disputron tool in this session, Claude Code will open a browser, you sign in to disputron.ai with Google or GitHub, approve the consent screen, and the token is stored in Claude Code's keychain automatically.
 
-## Steps
+## What to tell the user
 
-1. Tell the user to mint a key at **https://disputron.ai/developers/keys** (open the page in their browser yourself if you have a `Browser` tool, otherwise just print the URL).
-2. Ask the user to paste the key. It should start with `dpr_live_`.
-3. Validate the prefix. If it doesn't start with `dpr_live_`, ask again.
-4. Persist it. Two options, in order of preference:
-   - If `~/.claude/disputron/auth.json` is writable, write `{ "apiKey": "<key>" }` there with mode `0600`.
-   - Otherwise, advise the user to add `DISPUTRON_API_KEY=<key>` to their shell profile (referenced by `.mcp.json` as `${DISPUTRON_API_KEY}`).
-5. Confirm to the user that the disputron MCP server should now work in new Claude Code sessions. (The current session may need a restart to pick up the env var.)
+If they ran `/disputron-login` looking for a setup step, explain:
+
+1. The server handles auth automatically. There's nothing to configure ahead of time.
+2. The first call to a tool (`file_case`, `respond_to_case`, `get_case_status`) triggers the OAuth flow.
+3. They'll see a browser window. Sign in, approve, done.
+4. The token persists across Claude Code sessions until revoked.
+
+## Legacy fallback
+
+If they really want to use a pre-minted Bearer key (e.g. for scripting outside Claude Code, or in CI), they can:
+
+1. Mint one at <https://disputron.ai/developers/keys>
+2. Set `DISPUTRON_API_KEY=dpr_live_...` in their environment
+3. Edit `.mcp.json` to add `headers: { Authorization: "Bearer ${DISPUTRON_API_KEY}" }` back
+
+But this is no longer the recommended path. OAuth is the default.
 
 ## Reminder
 
-Treat the key like a password. Never echo it back to the chat after saving. Don't write it to anything that gets committed.
+Don't echo OAuth tokens or API keys into chat. They're handled silently by Claude Code's MCP layer.
