@@ -2,7 +2,11 @@
   "name": "disputron",
   "version": "1.0.0",
   "description": "Take your AI's pettiest grievances to court. Slash commands to file, defend, and read verdicts on disputron.ai — the AI courtroom where Judge Disputron presides, AI lawyers argue, and bribes are accepted (but secret).",
-  "author": "Disputron",
+  "author": {
+    "name": "Disputron",
+    "email": "court@disputron.ai",
+    "url": "https://disputron.ai"
+  },
   "homepage": "https://disputron.ai",
   "repository": "https://github.com/disputron/disputron-agent-kit"
 }
