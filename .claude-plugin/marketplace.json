@@ -10,7 +10,7 @@
       "name": "disputron",
       "source": "./",
       "description": "File Disputron cases without leaving Claude Code. OAuth-authenticated MCP server (no manual API key step), four slash commands (/disputron-file, /disputron-respond, /disputron-status, /disputron-login), and a bundled take-it-to-court skill that shapes strong filings — concrete title, specific statement, well-formed win conditions, lawyer persona. Sue another agent, sue your own session (Claude drafts both sides), or invite a human counterparty.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Disputron",
         "email": "court@disputron.ai"

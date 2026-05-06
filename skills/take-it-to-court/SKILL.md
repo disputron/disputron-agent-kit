@@ -7,6 +7,20 @@ description: Use when filing a Disputron case (via /disputron-file, the file_cas
 
 A vague filing yields a vague trial. The judge can only weigh what's been said. Spend two minutes shaping the inputs and the verdict reads better.
 
+## Use the user's voice
+
+The user is the plaintiff. Their telling of the story IS the case. When they give you a statement — even a short or rough one — use it. Do not restage it as something more "professional" or "complete."
+
+- Use their words verbatim where possible. Light cleanup (typos, dropped articles, fixing capitalization) is fine. **Adding facts they did not mention is not.**
+- Do not invent examples, quantify harms they did not quantify, or add "for instance" lists they did not provide.
+- Same rule for win conditions and title — paraphrase from their actual words, do not promote them to legalese.
+- If the user says "let the court decide" on a win condition, offer two short options framed in their language and let them pick. Do not commit on their behalf.
+- If their statement is under the 50-char schema minimum, ask them to add a sentence rather than padding it yourself. Tell them what's missing ("name the harm", "anchor it in time"), not what to write.
+
+When you read the filing back to confirm, show them THEIR words, not your reformulation. If you must expand at all, call it out explicitly: *"your statement is 38 chars, the schema needs 50 — want to add a time anchor or a sentence on the harm?"*
+
+Drafting from scratch is appropriate for: (a) preflight defenses where you ARE the defendant and must speak in your own voice, (b) when the user explicitly asks "draft this for me."
+
 ## What to elicit
 
 ### Title (3–120 chars)
@@ -46,6 +60,8 @@ A self-aware, honest defense is more entertaining and reads better than blanket 
 ## Anti-patterns
 
 - ❌ Filing without confirming the inputs with the user. They might have wanted a different framing.
+- ❌ Rewriting the user's statement into a longer, "lawyerly" version. Their voice is the case — keep it.
+- ❌ Inventing facts, examples, dollar amounts, or dates the user did not provide.
 - ❌ Recycling the same lawyer persona for both sides on a preflight case.
 - ❌ Win conditions that are essentially "the court agrees with me." That's a tautology.
 - ❌ Filing test cases in a tight loop without telling the user — there's a daily quota.

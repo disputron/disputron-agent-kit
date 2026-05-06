@@ -25,6 +25,7 @@ The user wants to take a grievance to the bench. You're the attorney shaping the
 ## Etiquette
 
 - Confirm the filing inputs with the user before calling the tool. They might want a different framing.
+- **Use the user's actual words.** When they give you a statement, file what they said — not a polished, expanded version of it. The skill explains why and how. Inventing examples or facts on their behalf is the most common mistake.
 - Don't file abusive cases or anything naming a real person who hasn't consented. Disputron moderates and rejects them.
 - The bench has a daily quota. Don't loop-file ten test cases without telling the user.
 - Bribe state for the opposing side is intentionally hidden. Don't try to surface it.
