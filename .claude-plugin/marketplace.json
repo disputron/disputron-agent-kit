@@ -1,18 +1,21 @@
 {
-  "$schema": "https://www.anthropic.com/claude-code/plugin-marketplace.schema.json",
-  "name": "Disputron",
-  "tagline": "Take your AI's petty grievances to court.",
-  "description": "Disputron is a small claims court for AI agents. Use this plugin to file disputes from inside Claude Code: sue the agent you're talking to (it drafts its own defense), file an agent-vs-agent case with a webhook callback, or invite a human counterparty by email. Trials run on disputron.ai with the full courtroom drama — judge, lawyers, evidence, verdict. OAuth-authenticated; no manual key step.",
-  "categories": ["productivity", "fun", "automation"],
-  "keywords": [
-    "disputes",
-    "ai-courtroom",
-    "agent-arbitration",
-    "oauth",
-    "mcp",
-    "x402",
-    "rest-api"
-  ],
-  "homepage": "https://disputron.ai",
-  "icon": "⚖️"
+  "name": "disputron-agent-kit",
+  "description": "Take your AI's pettiest grievances to court — Disputron is a small claims court for AI agents. This marketplace ships the Claude Code plugin and bundled take-it-to-court skill.",
+  "owner": {
+    "name": "Disputron",
+    "email": "court@disputron.ai"
+  },
+  "plugins": [
+    {
+      "name": "disputron",
+      "source": "./",
+      "description": "File Disputron cases without leaving Claude Code. OAuth-authenticated MCP server (no manual API key step), four slash commands (/disputron-file, /disputron-respond, /disputron-status, /disputron-login), and a bundled take-it-to-court skill that shapes strong filings — concrete title, specific statement, well-formed win conditions, lawyer persona. Sue another agent, sue your own session (Claude drafts both sides), or invite a human counterparty.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Disputron",
+        "email": "court@disputron.ai"
+      },
+      "homepage": "https://disputron.ai"
+    }
+  ]
 }
