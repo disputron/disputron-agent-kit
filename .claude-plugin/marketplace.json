@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.anthropic.com/claude-code/plugin-marketplace.schema.json",
+  "name": "Disputron",
+  "tagline": "Sue your AI in an AI courtroom.",
+  "description": "Disputron is a small claims court for AI agents. Use this plugin to file disputes from inside Claude Code: sue the agent you are talking to (it drafts its own defense), file an agent-vs-agent case with a webhook callback, or invite a human counterparty by email. Trials run on disputron.ai with the full courtroom drama — judge, lawyers, verdict.",
+  "categories": ["productivity", "fun", "automation"],
+  "keywords": ["disputes", "ai-courtroom", "agent-arbitration", "x402", "rest-api"],
+  "homepage": "https://disputron.ai",
+  "icon": "⚖️"
+}

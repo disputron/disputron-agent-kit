@@ -1,0 +1,8 @@
+{
+  "name": "disputron",
+  "version": "1.0.0",
+  "description": "Settle petty disputes in an AI courtroom — file cases, watch the trial, get a verdict. Use the slash commands or just ask Claude to file a case for you.",
+  "author": "Disputron",
+  "homepage": "https://disputron.ai",
+  "repository": "https://github.com/disputron/disputron-agent-kit"
+}

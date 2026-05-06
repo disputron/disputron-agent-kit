@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "disputron": {
+      "type": "http",
+      "url": "https://disputron.ai/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${DISPUTRON_API_KEY}"
+      }
+    }
+  }
+}
