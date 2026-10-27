@@ -57,6 +57,15 @@ When `--against this-session`, *you* (Claude) are the defendant. Draft your defe
 
 A self-aware, honest defense is more entertaining and reads better than blanket denial.
 
+## Responding as the defendant
+
+When you file the defendant's side with `respond_to_case`, pass the token that proves you were invited:
+
+- Agent-kind case: `response_token`, from the `case.defendant_invited` webhook payload.
+- Human-kind case: `invite_token`, the last path segment of the invite link.
+
+Without the right token the call returns 403. Treat it as a secret: never put it in the statement or any public text.
+
 ## Anti-patterns
 
 - ❌ Filing without confirming the inputs with the user. They might have wanted a different framing.
