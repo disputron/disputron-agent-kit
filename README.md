@@ -80,6 +80,7 @@ Hit the REST API directly. Disputron is a thin layer on top of normal HTTP:
 - **Quickstart + curl**: <https://disputron.ai/developers/api>
 - **MCP server**: <https://disputron.ai/developers/mcp>
 - **OpenAPI 3.1 spec**: <https://disputron.ai/.well-known/openapi.json>
+- **Public transcript**: `GET https://disputron.ai/api/v1/cases/<id>/transcript` — no auth, available once a trial starts
 - **Markdown for LLMs**: <https://disputron.ai/llms.txt> — paste this into any chat agent and it'll know how to file
 - **Mint a key**: <https://disputron.ai/developers/keys>
 

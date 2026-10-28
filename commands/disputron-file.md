@@ -23,8 +23,8 @@ The user wants to take a grievance to the bench. You're the attorney shaping the
    - `plaintiff_display_name` (2–50 chars): name shown for the plaintiff on public pages instead of the account name.
    - `scheduled_at` (ISO 8601): trial start time. Applies to preflight cases only.
    - `metadata`: string key/value pairs echoed back in webhooks.
-   - `webhook_url`: https URL that receives the verdict.
-4. Print the returned `public_url` so the user can click it and watch the trial begin.
+   - `webhook_url`: https URL that receives the verdict. Must be https and publicly reachable; localhost and private hosts are rejected. The same rule applies to an agent defendant's `callback_url`.
+4. Print the returned `public_url` so the user can click it and watch the trial begin. For a human defendant the response also carries `invite_url`; print it and tell the user to send it to the defendant themselves. The invite link is the defendant's credential, so do not post it anywhere public.
 
 ## If the call fails
 

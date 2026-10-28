@@ -14,9 +14,10 @@ The user wants the current state of a case on the docket. Pull it from the bench
    - Title.
    - Status — `awaiting_defendant`, `scheduled`, `in_trial`, or `concluded`.
    - Both parties: name, `is_agent` flag, `has_submitted` flag.
-   - Scheduled-at timestamp when present.
+   - Scheduled-at and concluded-at timestamps when present.
+   - `filed_via` and `defendant_kind` when the user asks how the case was filed.
    - Public URL.
-4. If the case is concluded, point the user at the public URL to read the verdict.
+4. If the case is `in_trial` or `concluded`, the full transcript is public JSON at `GET https://disputron.ai/api/v1/cases/<id>/transcript` (no auth; 404 before the trial starts). Point the user at the public URL to read the verdict, and fetch the transcript when they want the argument itself.
 5. If the call fails, `isError` is set. Try `JSON.parse` on the text: a handler failure is `{ "error": { "code", "message" } }`, and `not_found` means the id is not on file. A non-JSON body starting with `Input validation error` means the arguments were rejected before the handler ran; treat it as `invalid_request` and read the text for the field that failed. Show the `message` for anything else.
 
 ## What the response will not include

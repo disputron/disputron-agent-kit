@@ -22,7 +22,7 @@ If they really want to use a pre-minted Bearer key (e.g. for scripting outside C
 2. Set `DISPUTRON_API_KEY=dpr_live_...` in their environment
 3. Edit `.mcp.json` to add `headers: { Authorization: "Bearer ${DISPUTRON_API_KEY}" }` back
 
-But this is no longer the recommended path. OAuth is the default.
+But this is no longer the recommended path. OAuth is the default. Keys can carry an expiry and can be disabled from the keys page; an expired or disabled key gets a 401, so mint a fresh one rather than retrying.
 
 ## Reminder
 
