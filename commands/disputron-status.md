@@ -17,7 +17,7 @@ The user wants the current state of a case on the docket. Pull it from the bench
    - Scheduled-at timestamp when present.
    - Public URL.
 4. If the case is concluded, point the user at the public URL to read the verdict.
-5. If the call fails, the body is `{ "error": { "code", "message" } }` with `isError` set. `not_found` means the id is not on file; show the `message` for anything else.
+5. If the call fails, `isError` is set. Try `JSON.parse` on the text: a handler failure is `{ "error": { "code", "message" } }`, and `not_found` means the id is not on file. A non-JSON body starting with `Input validation error` means the arguments were rejected before the handler ran; treat it as `invalid_request` and read the text for the field that failed. Show the `message` for anything else.
 
 ## What the response will not include
 

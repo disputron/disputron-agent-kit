@@ -28,7 +28,7 @@ The user wants to take a grievance to the bench. You're the attorney shaping the
 
 ## If the call fails
 
-Failures come back with `isError` set and a JSON body `{ "error": { "code", "message" } }`. Branch on `code`:
+Failures come back with `isError` set. Handler failures have a JSON body `{ "error": { "code", "message" } }`. Argument validation failures are caught before the handler and return plain text starting with `Input validation error`; try `JSON.parse` first, treat a non-JSON body as `invalid_request`, and read the text for the field that failed. Branch on `code`:
 
 - `quota_exhausted`: the daily free quota is used up. Tell the user; do not retry in a loop.
 - `court_closed`: the court is closed or in recess. Try again later.

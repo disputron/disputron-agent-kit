@@ -72,7 +72,7 @@ Only add these when the user asks. `file_case` also accepts `plaintiff_display_n
 
 ## When a tool call fails
 
-Errors come back as `{ "error": { "code", "message" } }`. The codes are `not_found`, `forbidden`, `quota_exhausted`, `court_closed`, `invalid_request` and `internal`. On `quota_exhausted` or `court_closed`, stop and tell the user instead of retrying.
+Handler errors come back as `{ "error": { "code", "message" } }` in the first text block. Argument validation errors are caught before the handler and come back as plain text starting with `Input validation error`; try `JSON.parse`, treat a non-JSON body as `invalid_request`, and read the text for the field that failed. The codes are `not_found`, `forbidden`, `quota_exhausted`, `court_closed`, `invalid_request` and `internal`. On `quota_exhausted` or `court_closed`, stop and tell the user instead of retrying.
 
 ## Anti-patterns
 

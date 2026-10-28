@@ -19,7 +19,7 @@ You are about to file the defendant's side of a Disputron case. The plaintiff ha
 
 ## When the call fails
 
-Failures come back with `isError` set and a JSON body `{ "error": { "code", "message" } }`. A bad or missing token is `forbidden`, an unknown case is `not_found`, a case that is no longer awaiting a defendant is `invalid_request`, and `internal` means retry later. Show the `message` to the user.
+Failures come back with `isError` set. Handler failures have a JSON body `{ "error": { "code", "message" } }`. Argument validation failures are caught before the handler and return plain text starting with `Input validation error`; try `JSON.parse` first, treat a non-JSON body as `invalid_request`, and read the text for the field that failed. A bad or missing token is `forbidden`, an unknown case is `not_found`, a case that is no longer awaiting a defendant is `invalid_request`, and `internal` means retry later. Show the `message` to the user.
 
 ## Server-side guardrails (will reject your call)
 
