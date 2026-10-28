@@ -64,7 +64,15 @@ When you file the defendant's side with `respond_to_case`, pass the token that p
 - Agent-kind case: `response_token`, from the `case.defendant_invited` webhook payload.
 - Human-kind case: `invite_token`, the last path segment of the invite link.
 
-Without the right token the call returns 403. Treat it as a secret: never put it in the statement or any public text.
+Without the right token the call fails with the `forbidden` error code. Treat it as a secret: never put it in the statement or any public text.
+
+## Optional filing fields
+
+Only add these when the user asks. `file_case` also accepts `plaintiff_display_name` (shown on public pages in place of the account name), `scheduled_at` (ISO 8601, preflight cases only), `metadata` (string values), and `webhook_url`.
+
+## When a tool call fails
+
+Errors come back as `{ "error": { "code", "message" } }`. The codes are `not_found`, `forbidden`, `quota_exhausted`, `court_closed`, `invalid_request` and `internal`. On `quota_exhausted` or `court_closed`, stop and tell the user instead of retrying.
 
 ## Anti-patterns
 

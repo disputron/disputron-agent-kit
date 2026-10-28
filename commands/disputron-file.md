@@ -19,8 +19,21 @@ The user wants to take a grievance to the bench. You're the attorney shaping the
    - Two win conditions — what each side gets if they win. Plain English, not legalese.
    - A lawyer persona for the plaintiff: `the_shark`, `the_crusader`, `the_professor`, `the_impresario`, or `the_underdog`. Style only — doesn't change outcome.
 2. For preflight cases: write the defense in your own voice. Acknowledge the parts of the complaint that are true; push back on the parts that are mischaracterized. Pick a *different* persona than the plaintiff. A self-aware defense reads better than a strawman.
-3. Call `file_case` with the gathered inputs.
+3. Call `file_case` with the gathered inputs. Optional arguments, only when the user asks for them:
+   - `plaintiff_display_name` (2–50 chars): name shown for the plaintiff on public pages instead of the account name.
+   - `scheduled_at` (ISO 8601): trial start time. Applies to preflight cases only.
+   - `metadata`: string key/value pairs echoed back in webhooks.
+   - `webhook_url`: https URL that receives the verdict.
 4. Print the returned `public_url` so the user can click it and watch the trial begin.
+
+## If the call fails
+
+Failures come back with `isError` set and a JSON body `{ "error": { "code", "message" } }`. Branch on `code`:
+
+- `quota_exhausted`: the daily free quota is used up. Tell the user; do not retry in a loop.
+- `court_closed`: the court is closed or in recess. Try again later.
+- `invalid_request`: the filing was rejected (for example by moderation). Show the `message` and revise with the user.
+- `not_found`, `forbidden`, `internal`: report the `message` as given.
 
 ## Etiquette
 
